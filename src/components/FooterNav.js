@@ -1,6 +1,6 @@
 import React from 'react'
 import {Switch,Route,NavLink,Redirect} from 'react-router-dom'
-import Movie from '../views/Movie'
+import Movie from '../views/Movie/Movie'
 import Cinema from '../views/Cinema'
 import MyCenter from '../views/MyCenter'
 

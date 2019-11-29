@@ -10,16 +10,66 @@
   height:100%;
 }
 header{
+  box-sizing: border-box;
   width:100%;
   height:48px;
   text-align: center;
+  background: #e54847;
+  border-bottom:1px solid #e54847;
+}
+header h1{
+  margin:0;
+  font-weight: 400;
+  width:100%;
+  height:100%;
+  line-height:48px;
+  color:#fff;
+  font-size:18px;
+  
+}
+main{
+  height:85.6vh;
+}
+.main-context{
+  width:100%;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+}
+.download-app-bar{
+  box-sizing: border-box;
+  width:100%;
+  height:64px;
+  border-bottom:1px solid #e6e6e6;
+  text-align: center;
+  line-height: 64px;
+}
+.topbar{
+  box-sizing: border-box;
+  width:100%;
+  height:44px;
+  border-bottom: 1px solid #e6e6e6;
+  display: flex;
+  justify-content: space-between;
+}
+.list-wrap{
+  height:69.4vh;
+  width:100%;
+  overflow: scroll;
+}
+.comingList-wrap{
+  height:69.4vh;
+  width:100%;
+  overflow: scroll;
 }
 footer{
+  box-sizing: border-box;
   display: flex;
   justify-content: space-around;
   text-align: center;
   height:48px;
   line-height: 48px;
+  border-top: 1px solid #d8d8d8;
   
 }
 .App-link {
