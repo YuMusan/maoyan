@@ -1,20 +1,16 @@
 import React from 'react'
-import axios from 'axios'
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import actionCreator from '../../store/actions';
 
-export default class ComingMovie extends React.Component{
-    constructor(){
-        super();
-        this.state={
-            comingList:[]
-        }
-    }
+class ComingMovie extends React.Component{
     render(){
         return(
             <div className="comingList-wrap">
                 {
-                    this.state.comingList.map(v=>(
-                        <div className="list-item" key={v.id}>
-                            <React.Fragment key={v.id}>
+                    this.props.comingMovie.map(v=>(
+                        <div className="coming-list-item" key={v.id}>
+                            <React.Fragment>
                                 <div>{v.nm}</div>
                                 <img src={v.img.replace("w.h","128.180")} alt=""/>
                                 <div>{v.star}</div>
@@ -25,11 +21,19 @@ export default class ComingMovie extends React.Component{
             </div>
         )
     }
-    async UNSAFE_componentWillMount(){
-        const {data}= await axios.get("/ajax/comingList?ci=1&token=&limit=10")
-        console.log(data)
-        this.setState({
-            comingList:data.coming
-        })
+    
+    UNSAFE_componentWillMount(){
+        this.props.getComingMovie()
+        console.log(this.props.comingMovie)
+
     }
 }
+function mapStateToProps(state){
+    return {
+      comingMovie:state.comingMovieReducer.comingMovie,
+    }
+  }
+  function mapDispatchToProps(dispatch){
+    return bindActionCreators(actionCreator,dispatch)
+  }
+  export default connect(mapStateToProps,mapDispatchToProps)(ComingMovie);

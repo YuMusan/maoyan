@@ -4,7 +4,8 @@ import HotMovie from './HotMovie'
 import ComingMovie from './ComingMovie'
 import search from '../../images/search.png'
 
-export default class Login extends React.Component{
+
+export default class Movies extends React.Component{
     render(){
         return(
             <>

@@ -4,7 +4,7 @@ import {Switch,Route} from 'react-router-dom'
 import Login from './views/Login'
 import Home from './views/Home'
 
-function App() {
+function App(){
   return (
     <div className="App">
         <Switch>
