@@ -5,15 +5,18 @@ import actionCreator from '../../store/actions';
 
 class HotMovie extends React.Component{
     render(){
+        // console.log(this.props.movieIds)
         return(
-            <div className="list-wrap">
+            <div className="list-wrap" onScroll={this.handleScroll.bind(this)}>
                 {
                     this.props.hotMovie.map(v=>(
                         <div className="hot-list-item" key={v.id}>
                             <React.Fragment>
-                                <div>{v.nm}</div>
-                                <img src={v.img.replace("w.h","128.180")} alt=""/>
-                                <div>{v.star}</div>
+                                <img className='item-img' src={v.img.replace("w.h","128.180")} alt=""/>
+                                <div>
+                                    <h4>{v.nm}</h4>
+                                    <p>{v.star}</p>
+                                </div>
                             </React.Fragment>
                         </div>  
                     ))
@@ -21,16 +24,19 @@ class HotMovie extends React.Component{
             </div>
         )
     }
+    handleScroll(e){
+        console.log(e.target)
+    }
     componentDidMount(){
-        this.props.getHotMOvie()
-        console.log(this.props.hotMovie)
-
+        this.props.initvailMovie();
+        this.props.getHotMOvie();
     }
 }
 
 function mapStateToProps(state){
     return {
       hotMovie:state.hotMovieReducer.hotMovie,
+      movieIds:state.hotMovieReducer.movieIds
     }
   }
   function mapDispatchToProps(dispatch){

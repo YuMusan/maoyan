@@ -2,6 +2,14 @@
   width:100%;
   height:100%;
 }
+h1,h3,h5,p{
+  margin:0;
+  padding:0;
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
 .App {
   display: flex;
   flex-direction: column;
@@ -18,7 +26,6 @@ header{
   border-bottom:1px solid #e54847;
 }
 header h1{
-  margin:0;
   font-weight: 400;
   width:100%;
   height:100%;
@@ -41,8 +48,17 @@ main{
   width:100%;
   height:64px;
   border-bottom:1px solid #e6e6e6;
-  text-align: center;
-  line-height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.download-app-bar h1{
+  width:44px;
+  height:44px;
+}
+.download-app-bar h1 img{
+  width:44px;
+  height:44px;
 }
 .topbar{
   box-sizing: border-box;
@@ -51,16 +67,46 @@ main{
   border-bottom: 1px solid #e6e6e6;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.city-entry-arrow {
+  width: 0;
+  height: 0;
+  border: 4px solid #b0b0b0;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  display: inline-block;
+  margin-left: 4px;
+  margin-top: 5px;
 }
 .list-wrap{
   height:69.4vh;
   width:100%;
   overflow: scroll;
 }
+.hot-list-item{
+  width:100%;
+  height:114px;
+  display:flex;
+  box-sizing: border-box;
+  padding:10px;
+}
+.item-img{
+  width:64px;
+  height:90px;
+}
 .comingList-wrap{
   height:69.4vh;
   width:100%;
   overflow: scroll;
+}
+.coming-list-item{
+  width:100%;
+  height:114px;
+  display:flex;
+  box-sizing: border-box;
+  padding:10px;
 }
 footer{
   box-sizing: border-box;

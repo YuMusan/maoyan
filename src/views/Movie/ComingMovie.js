@@ -11,9 +11,11 @@ class ComingMovie extends React.Component{
                     this.props.comingMovie.map(v=>(
                         <div className="coming-list-item" key={v.id}>
                             <React.Fragment>
-                                <div>{v.nm}</div>
-                                <img src={v.img.replace("w.h","128.180")} alt=""/>
-                                <div>{v.star}</div>
+                            <img className='item-img' src={v.img.replace("w.h","128.180")} alt=""/>
+                                <div>
+                                    <h4>{v.nm}</h4>
+                                    <p>{v.star}</p>
+                                </div>
                             </React.Fragment>
                         </div>  
                     ))
@@ -23,9 +25,8 @@ class ComingMovie extends React.Component{
     }
     
     UNSAFE_componentWillMount(){
+        this.props.initvailMovie()
         this.props.getComingMovie()
-        console.log(this.props.comingMovie)
-
     }
 }
 function mapStateToProps(state){
