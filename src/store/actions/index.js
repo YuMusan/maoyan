@@ -37,10 +37,11 @@ function getComingMovie(){
         axios.get("/ajax/comingList",{params:{
             ci:1,
             token:'',
-            limit:10
+            limit:12
         }}).then(({data})=>{
             const comingMovieList=data.coming
-            dispatch(ComingMovie({comingMovieList}))
+            const movieIds=data.movieIds;
+            dispatch(ComingMovie({comingMovieList,movieIds}))
         })
     }
 }

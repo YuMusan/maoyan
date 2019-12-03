@@ -10,7 +10,7 @@ export default class Movies extends React.Component{
     render(){
         return(
             <>
-                <main>
+                <main className="main-movie">
                     <div className="main-context">
                         <DownLoadBar></DownLoadBar>
                         <section className="topbar">

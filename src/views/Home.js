@@ -25,9 +25,13 @@ export default class Home extends React.Component{
             "/myCenter":"我的"
         }
         const pathname=nextProps.location.pathname;
-        this.setState({
-            str:title[pathname]
-        })
+        for(let key in title){
+            if(pathname.includes(key)){
+                this.setState({
+                    str:title[key]
+                })
+            }
+        }
     }
     UNSAFE_componentWillReceiveProps(nextProps){
         this.headerContext(nextProps)

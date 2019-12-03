@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class Login extends React.Component{
+export default class MyCenter extends React.Component{
     render(){
         return(
             <>
@@ -9,5 +9,11 @@ export default class Login extends React.Component{
                 </main>
             </>
         )
+    }
+    componentDidMount(){
+        if(!localStorage.userName){
+            console.log((localStorage.userName))
+            this.props.history.push("/login")
+        }
     }
 }

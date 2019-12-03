@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class Login extends React.Component{
+export default class Cinema extends React.Component{
     render(){
         return(
             <>

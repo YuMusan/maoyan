@@ -5,7 +5,7 @@ import actionCreator from '../../store/actions';
 
 class HotMovie extends React.Component{
     render(){
-        // console.log(this.props.movieIds)
+        // console.log(this.props)
         return(
             <div className="list-wrap" onScroll={this.handleScroll.bind(this)}>
                 {

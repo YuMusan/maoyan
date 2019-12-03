@@ -5,7 +5,8 @@ const hotMovieStateInit={
     movieIds:[]
 }
 const comingMovieStateInit={
-    comingMovie:[]
+    comingMovie:[],
+    movieIds:[]
 }
 
 const hotMovieReducer=(state=hotMovieStateInit,{type,payload})=>{
@@ -33,6 +34,7 @@ const comingMovieReducer=(state=comingMovieStateInit,{type,payload})=>{
                 ...state.comingMovie,
                 ...payload.comingMovieList
             ]
+            state.movieIds=payload.movieIds
             return state;
         case 'MOVIE_INIT':
             state.comingMovie=payload

@@ -2,7 +2,7 @@
   width:100%;
   height:100%;
 }
-h1,h3,h5,p{
+h1,h3,p{
   margin:0;
   padding:0;
   list-style: none;
@@ -34,7 +34,8 @@ header h1{
   font-size:18px;
   
 }
-main{
+/* movie */
+.main-movie{
   height:85.6vh;
 }
 .main-context{
@@ -118,10 +119,21 @@ footer{
   border-top: 1px solid #d8d8d8;
   
 }
-.App-link {
-  font-size: 18px;
-  color:#696969;
+/* login */
+.goback{
+  position: absolute;
+  left:10px;
+  top:14px;
+  font-size: 14px;
+  color:#fff;
 }
-.App-active{
-  color:#f03d37;
+.login-wrap{
+  display: flex;
+  flex-direction: column;
+}
+.meituan-login{
+  flex-direction: column;
+}
+.mobile-login{
+  flex-direction: column;
 }
