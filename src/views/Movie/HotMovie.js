@@ -25,7 +25,7 @@ class HotMovie extends React.Component{
         )
     }
     handleScroll(e){
-        console.log(e.target)
+        
     }
     componentDidMount(){
         this.props.initvailMovie();

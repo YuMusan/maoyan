@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import actionCreator from '../../store/actions';
-import axios from 'axios'
+// import axios from 'axios'
 
 class ComingMovie extends React.Component{
     constructor(){
@@ -31,21 +31,16 @@ class ComingMovie extends React.Component{
     handleScroll(e){
         const scrollHeight=e.target.scrollHeight;
         let scrollTop=e.target.scrollTop;
-        const itemHeight=this.itemRef.current.offsetHeight;
-        let loadCondition=Math.floor((scrollHeight-scrollTop)/itemHeight)
+        let itemHeight=this.itemRef.current.offsetHeight;
+        let loadCondition=Math.floor((scrollHeight-scrollTop)/itemHeight);
         console.log(loadCondition)
         const idLength=this.props.comingMovie.length;
-        const nextIds=this.props.movieIds.slice(idLength,idLength+12)
-        const movieIds=nextIds.toString()
-        console.log(movieIds)
+        const nextIds=this.props.movieIds.slice(idLength,idLength+12);
+        const movieIds=nextIds.toString();
+        const comingList=this.props.comingMovie;
         if(loadCondition===4){
-            axios.get("/ajax/comingList",{params:{
-                ci:1,
-                token:'',
-                limit:24,
-            }}).then(({data})=>{
-                console.log(data)
-            })
+            console.log(123123)
+            // this.props.getMoreComing(movieIds,comingList)
         }
     }
     UNSAFE_componentWillMount(){

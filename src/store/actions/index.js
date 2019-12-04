@@ -9,7 +9,7 @@ const HotMovie= payload=>{
 function getHotMOvie(){
     return dispatch=>{
         axios.get("/ajax/movieOnInfoList",{params:{
-
+            token:''
         }}).then(({data})=>{
             const movieList=data.movieList;
             const movieIds=data.movieIds;
@@ -17,15 +17,6 @@ function getHotMOvie(){
         })
     }
 }
-// function scrollGetHotMovie(nextIds){
-//     return dispatch=>{
-//         axios.get("/ajax/moreComingList",{params:{
-//             movieIds:nextIds
-//         }}).then(({data})=>{
-//             console.log(data)
-//         })
-//     }
-// }
 const ComingMovie= payload=>{
     return {
         type:'COMING_MOVIE',
@@ -36,12 +27,34 @@ function getComingMovie(){
     return dispatch=>{
         axios.get("/ajax/comingList",{params:{
             ci:1,
-            token:'',
-            limit:12
+            limit:12,
         }}).then(({data})=>{
             const comingMovieList=data.coming
             const movieIds=data.movieIds;
             dispatch(ComingMovie({comingMovieList,movieIds}))
+        })
+    }
+}
+const MoreComingMovie= payload=>{
+    return {
+        type:'MORE_COMING_MOVIE',
+        payload
+    }
+}
+function getMoreComing(movieIds,movieList){
+    return dispatch=>{
+        axios.get("/ajax/moreComingList",{params:{
+            ci:1,
+            limit:12,
+            movieIds
+        }}).then(({data})=>{
+            const comingList=data.coming;
+            const moreComingList=[
+                ...movieList,
+                ...comingList
+            ]
+            console.log(moreComingList)
+            dispatch(MoreComingMovie({moreComingList}))
         })
     }
 }
@@ -53,4 +66,4 @@ function initvailMovie(){
         })
     }
 }
-export default{getHotMOvie,getComingMovie,initvailMovie}
+export default{getHotMOvie,getComingMovie,initvailMovie,getMoreComing}

@@ -39,6 +39,12 @@ const comingMovieReducer=(state=comingMovieStateInit,{type,payload})=>{
         case 'MOVIE_INIT':
             state.comingMovie=payload
             return state
+        case 'MORE_COMING_MOVIE':
+            state.comingMovie=[
+                ...state.comingMovie,
+                ...payload.moreComingList
+            ]
+            return state
         default:
             return state;
     }
